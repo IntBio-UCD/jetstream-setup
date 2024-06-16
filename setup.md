@@ -230,17 +230,6 @@ sudo ln -sf /usr/local/src/ncbi-blast-2.15.0+/bin/* .
 cd
 ```
 
-### Installing Tophat
-__Probably not needed, use HISAT2 instead__
-```
-cd /usr/local/src
-sudo wget http://ccb.jhu.edu/software/tophat/downloads/tophat-2.1.1.Linux_x86_64.tar.gz
-sudo tar xvfz tophat-2.1.1.Linux_x86_64.tar.gz
-sudo rm tophat-2.1.1.Linux_x86_64.tar.gz
-cd /usr/local/bin
-sudo ln -s /usr/local/src/tophat-2.1.1.Linux_x86_64/tophat .
-```
-
 ### Installing Samtools, bctools, htslib
 (apt versions are way behind)
 ```
@@ -286,30 +275,6 @@ sudo cp -s ../src/FastQC/fastqc .
 cd
 ```
 
-### Installing seqtk
-__NOT NEEDED__
-```
-# cd /usr/local/src
-# sudo git clone https://github.com/lh3/seqtk.git
-# cd seqtk
-# sudo make
-# cd /usr/local/bin
-# sudo ln -s /usr/local/src/seqtk/seqtk .
-# cd
-```
-
-### Installing Cufflinks
-__NOT NEEDED__
-```
-# cd /usr/local/src
-# sudo wget http://cole-trapnell-lab.github.io/cufflinks/assets/downloads/cufflinks-2.2.1.Linux_x86_64.tar.gz
-# sudo tar -xvzf cufflinks-2.2.1.Linux_x86_64.tar.gz
-# sudo rm cufflinks-2.2.1.Linux_x86_64.tar.gz
-# cd /usr/local/bin
-# sudo ln -s /usr/local/src/cufflinks-2.2.1.Linux_x86_64/cuff* .
-# sudo ln -s /usr/local/src/cufflinks-2.2.1.Linux_x86_64/g* .
-# cd
-```
 
 ### Installing GATK 4.5.0.0
 
@@ -323,9 +288,6 @@ sudo ln -s /usr/local/src/gatk-4.5.0.0/gatk .
 cd
 ```
 
-### fastStructure
-__ Can't install due to python2 dependency.  Alternatives are ADMIXTURE or SambaR; see below__
-
 
 ### ADMIXTURE
 https://dalexander.github.io/admixture/download.html
@@ -336,22 +298,6 @@ sudo tar -xvzf admixture_linux-1.3.0.tar.gz
 cd ../bin
 sudo ln -s /usr/local/src/dist/admixture_linux-1.3.0/admixture .
 cd
-```
-
-### SambaR
-https://github.com/mennodejong1986/SambaR
-
-Not really an R package, but wrappers that can help with the admixture analysis in R
-
-```
-cd /usr/local/src
-sudo git clone https://github.com/mennodejong1986/SambaR.git
-cd SambaR
-sudo R
-
-# in R
-source("SAMBAR_v1.10.txt")
-getpackages()
 ```
 
 ### htseq
@@ -375,12 +321,13 @@ ln -s /usr/local/src/hifiasm/hifiasm ./
 exit
 ```
 
-### Miniconda (needed for pbmmap2)
+### Miniconda (needed for seqkit, busco, minimap2)
 
 See https://docs.anaconda.com/free/miniconda/miniconda-install/
 
 Do as exouser, not root
 ```
+cd
 mkdir -p ~/miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
@@ -391,91 +338,31 @@ source .bashrc
 
 ```
 
-Got warning: do I need to deal with this?
-WARNING:
-    You currently have a PYTHONPATH environment variable set. This may cause
-    unexpected behavior when running the Python interpreter in Miniconda3.
-    For best results, please verify that your PYTHONPATH only points to
-    directories of packages that are compatible with the Python interpreter
-    in Miniconda3: /home/exouser/miniconda3
 
-
-### [PacBio MiniMap2](https://github.com/PacificBiosciences/pbmm2)
-[Install Instructions](https://github.com/PacificBiosciences/pbbioconda)
-
-Also [seqkit](https://github.com/shenwei356/seqkit) and [busco]()
+### a bunch of sequencing relateed tools via miniconda [seqkit](https://github.com/shenwei356/seqkit), [busco](), minimap2, STAR, igv
 ```
-conda create --name pb-minimap2
-conda activate pb-minimap2
-conda install -c bioconda pbmm2
+conda create --name sequencing
+conda activate sequencing
+conda install -c bioconda star
+conda install -c bioconda minimap2
 conda install -c bioconda seqkit
+conda install -c bioconda igv
+conda install -c bioconda igvtools
 conda install -c conda-forge -c bioconda busco
 conda deactivate
-```
-
-### [PacBio CpG Tools](https://github.com/PacificBiosciences/pb-CpG-tools)
-
-```
-sudo -i
-
-cd /usr/local/src
-
-wget https://github.com/PacificBiosciences/pb-CpG-tools/releases/download/v2.3.2/pb-CpG-tools-v2.3.2-x86_64-unknown-linux-gnu.tar.gz
-
-tar -xzf pb-CpG-tools-v2.3.2-x86_64-unknown-linux-gnu.tar.gz
-
-cd /usr/local/bin/
-ln -s /usr/local/src/pb-CpG-tools-v2.3.2-x86_64-unknown-linux-gnu/bin/aligned_bam_to_cpg_scores ./
-exit
-```
-
-### [bbmap](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/installation-guide/)
-installing to get `stats.sh` for sequence assembly stats
-
-```
-sudo apt install bbmap
-sudo ln -s /usr/share/bbmap/stats.sh /usr/local/bin/
-```
-
-### [fastp](https://github.com/OpenGene/fastp?tab=readme-ov-file)
-Alternative to trimmomatic
-```
-sudo -i
-
-cd /usr/local/bin
-wget http://opengene.org/fastp/fastp
-chmod a+x ./fastp
-```
-
-### igv
-go to [igv downloads](http://software.broadinstitute.org/software/igv/download) and download the binary version (currently 2.16)
-
-```
-cd /usr/local/src
-sudo wget https://data.broadinstitute.org/igv/projects/downloads/2.17/IGV_Linux_2.17.4_WithJava.zip
-sudo unzip IGV_Linux_2.17.4_WithJava.zip
-sudo rm IGV_Linux_2.17.4_WithJava.zip
-sudo ln -s /usr/local/src/IGV_Linux_2.17.4/igv.sh /usr/local/bin/igv
-cd
-```
-
-### STAR
-
-Download from https://github.com/alexdobin/STAR
-
-```
-cd /usr/local/src
-sudo wget https://github.com/alexdobin/STAR/archive/refs/tags/2.7.11b.tar.gz
-sudo tar -xzf 2.7.11b.tar.gz
-cd /usr/local/bin
-sudo ln -s /usr/local/src/STAR-2.7.11b/bin/Linux_x86_64_static/STAR .
-cd 
 ```
 
 ## Installing [fail2ban](https://github.com/fail2ban/fail2ban)
 This software blocks ssh access after X failed attempts (default 10)
 ```
-sudo apt install fail2ban
+sudo apt -u install fail2ban
+```
+
+## mosh and fish
+
+```
+sudo apt -y install mosh
+sudo apt -y install fish
 ```
 
 ## update Rstudio prefs
@@ -484,59 +371,17 @@ Do not restore workspace with .Rdata
 Never save workspace to .Rdata
 Softwrap R source files
 
-## Install slack
-```
-# download .deb from slack website using firefox on the instance
-# in terminal
-cd Downloads
-sudo gdebi slack-desktop-4.29.149-amd64.deb #y
-```
+## TODO
 
-### Add class data to image
-
-```
-cd ~
-wget http://malooflab.phytonetworks.org/media/maloof-lab/filer_public/8f/d5/8fd59de6-e311-4d50-8320-acc58402982f/bis180l_class_data_2020tar.gz
-tar -xzvf bis180l_class_data_2020tar.gz
-rm bis180l_class_data_2020tar.gz
-```
-
-## Change VNC server Settings
-```
-sudo vi /etc/systemd/system/vncserver@.service
-
-## edit the `ExecStart` line to match what is below.  This allows vnc to listen on all incoming IPs, and requires TLS encryption.  LEave the rest of the file as is
-
-ExecStart=/usr/bin/vncserver -fg -SecurityTypes TLSVnc -localhost no -rfbauth /home/exouser/.vnc/p
-
-```
-
-### Refresh server and change password
-# Do by ssh, not web desktop
-```
-vncpasswd # Genomics
-sudo systemctl daemon-reload
-vncserver -kill :1
-sudo systemctl enable vncserver@1.service
-sudo systemctl restart vncserver@1
-sudo systemctl status vncserver@1 # to check
-```
-
-## SSH public key
-
-You may want to add a ssh public key to `~/.ssh/authorized_keys` so that if things go south with a student's VM you can try logging on that way
+read access to raw data and read/write access to analyses
 
 # Create image snapshot
 On Jetstream gui click create snapshot image of instance under actions while server is running
 
 # Create new instances
-Image: BIS180_Base-image
+Image: Intbio-2024_image
 Flavor: m3.quad  
 
  * 4 CPU cores  
  * 15 GB RAM  
  * 80 GB Root Disk (Custom size, increase from 20 to 80 GB)
-
-**DO NOT Add Web Desktop** (Doing so will wipe out vnc settings)
-
-# Ready for class
