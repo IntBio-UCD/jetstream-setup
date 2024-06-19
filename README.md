@@ -53,3 +53,5 @@ Raw data is in `/raw_seq_data` and is mounted read only
 
 You can use `/analyzed_data` both for your working space and finalized analyses.  Use a folder with your username for work in progress, and them move to `finalized_analyses` when you are done.
 
+I have started a directory `/analyzes_data/ref_genomes` for placing fasta files, etc, of commonly used genomes.
+
