@@ -371,9 +371,9 @@ Do not restore workspace with .Rdata
 Never save workspace to .Rdata
 Softwrap R source files
 
-## TODO
+## Create and add access to shares
 
-read access to raw data and read/write access to analyses
+See [manila shares](https://docs.jetstream-cloud.org/general/manilaVM/)
 
 # Create image snapshot
 On Jetstream gui click create snapshot image of instance under actions while server is running
