@@ -4,6 +4,8 @@ see `setup.md` for software installations
 
 ## create an instance
 
+First register at [https://access-ci.org/](https://access-ci.org/), then ask Julin to add you to this allocation.
+
 Go to the [jetstream portal](https://jetstream2.exosphere.app/)
 
 If the IntBio allocation is not showing, click on "add allocation" and then authenticate and add it.
