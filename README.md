@@ -29,6 +29,14 @@ If you don't already have an instance, create one:
     + You may want to add your ssh public key, then you won't need a password (ask Julin for help)
     + Remember to start a [Screen](https://jnmaloof.github.io/BIS180L_web/2024/05/17/screenGuide/) or [tmux](https://github.com/tmux/tmux/wiki) session if you want your session to persist when closing your laptop, etc.
    
+## personalization
+
+For github, at the terminal set your email and name (replace info in brackets below)
+```
+git config --global user.email "[YOU]@ucdavis.edu"
+git config --global user.name "[YOUR NAME]"
+```
+   
 ## IMPORTANT Shelve your Instance!
 
 __SHELVE YOUR INSTANCE WHEN YOU AREN'T USING IT.  GO TO THE `ACTIONS` MENU ON JETSTREAM AND SELECT `SHELVE`__
