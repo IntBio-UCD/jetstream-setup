@@ -15,3 +15,16 @@ conda create -n freebayes -c bioconda -c conda-forge freebayes=1.3.6 vcflib=1.0.
 ```
 conda create -n jellyfish -c bioconda kmer-jellyfish
 ```
+
+## BBmap
+
+```
+conda activate sequencing
+conda install bbmap -c bioconda
+```
+## Seqfu
+
+```
+conda activate sequencing
+conda install -y -c conda-forge -c bioconda "seqfu>1.10"
+```
