@@ -28,3 +28,10 @@ conda install bbmap -c bioconda
 conda activate sequencing
 conda install -y -c conda-forge -c bioconda "seqfu>1.10"
 ```
+
+## multiqc
+
+```
+conda activate sequencing
+conda install multiqc
+```
