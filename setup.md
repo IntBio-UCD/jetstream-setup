@@ -69,8 +69,6 @@ apt install bwa -y # probably not needed use hisat
 apt install bowtie2 -y # probably not needed use hisat
 apt install hisat2 python3-hisat2 -y 
 apt install bedtools -y
-apt install freebayes -y
-# apt install busco -y # Broken.  Use bioconda, see below
 apt install mafft -y
 apt install probalign -y
 apt install t-coffee -y
@@ -321,6 +319,21 @@ ln -s /usr/local/src/hifiasm/hifiasm ./
 exit
 ```
 
+## trimmomatic
+
+```
+cd ~/Downloads
+wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.39.zip
+unzip Trimmomatic-0.39.zip
+sudo mv Trimmomatic-0.39 /usr/local/bin
+vi ~/.bashrc
+# in vi, add the following line (without the #) to set up an alias:
+alias trimmomatic="java -jar /usr/local/bin/Trimmomatic-0.39/trimmomatic-0.39.jar"
+
+#exit vi, then
+source ~/.bashrc
+```
+
 ### Miniconda (needed for seqkit, busco, minimap2)
 
 See https://docs.anaconda.com/free/miniconda/miniconda-install/
@@ -349,7 +362,20 @@ conda install -c bioconda seqkit
 conda install -c bioconda igv
 conda install -c bioconda igvtools
 conda install -c conda-forge -c bioconda busco
+conda install bbmap -c bioconda
+conda install -y -c conda-forge -c bioconda "seqfu>1.10"
+conda install multiqc
 conda deactivate
+```
+
+## Freebayes
+```
+conda create -n freebayes -c bioconda -c conda-forge freebayes=1.3.6 vcflib=1.0.1
+```
+
+## Jellyfish
+```
+conda create -n jellyfish -c bioconda kmer-jellyfish
 ```
 
 ## Installing [fail2ban](https://github.com/fail2ban/fail2ban)
