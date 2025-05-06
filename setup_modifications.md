@@ -2,6 +2,12 @@
 
 Things to do differnetly next time.  These are updates I am making to my instance as I go
 
+2025 has incorporated the previous updates, so this is blank for now.
+
+# For 2025
+
+# For 2024 (not needed for 2025 image)
+
 ## Freebayes
 
 The apt install doesn't include scripts that  I need.  And it is picky about versions, so it gets its own Conda environment
