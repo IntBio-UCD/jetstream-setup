@@ -1,4 +1,4 @@
-From Image: Ubuntu22
+From Image: Ubuntu24.04
 Flavor: m3.quad  
 
  * 4 CPU cores  
