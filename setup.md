@@ -123,9 +123,9 @@ sudo apt install --no-install-recommends r-base
 
 Check Posit website for latest
 ```
-wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2024.04.2-764-amd64.deb
-sudo gdebi rstudio-2024.04.2-764-amd64.deb  # y
-rm rstudio-2024.04.2-764-amd64.deb
+wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2025.05.0-496-amd64.deb
+sudo gdebi rstudio-2025.05.0-496-amd64.deb  # y
+rm rstudio-2025.05.0-496-amd64.deb
 ## Edit the exec command of ~/.local/share/applications/rstudio.desktop to just run rstudio and not that module crap
 ```
 
@@ -150,16 +150,16 @@ sudo apt-get install -y libv8-dev
 sudo apt install -y r-cran-rstan
 
 # more bayes
-sudo apt install r-cran-mvtnorm r-cran-loo r-cran-coda r-cran-brms
+sudo apt install -y r-cran-mvtnorm r-cran-loo r-cran-coda r-cran-brms
 
 # statistical learning
-sudo apt install r-cran-glmnet r-cran-gam r-cran-pls r-cran-tree r-cran-gbm r-cran-xgboost
+sudo apt install -y r-cran-glmnet r-cran-gam r-cran-pls r-cran-tree r-cran-gbm r-cran-xgboost
 
 # phylogenetics
-sudo apt install r-cran-ape r-cran-ouch r-cran-phytools r-cran-phylolm
+sudo apt install -y r-cran-ape r-cran-ouch r-cran-phytools r-cran-phylolm
 
 # tidy models
-sudo apt install r-cran-tidymodels r-cran-corrplot r-cran-mda  r-cran-rules
+sudo apt install -y r-cran-tidymodels r-cran-corrplot r-cran-mda  r-cran-rules
 ```
 
 ```
