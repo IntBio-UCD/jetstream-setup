@@ -217,15 +217,15 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-package
 sudo apt update && sudo apt install github-desktop
 ```
 
-### Installing BLAST 2.15.0+ from NCBI (version 2.12 installed by default, replace it with code below)
+### Installing BLAST 2.16.0+ from NCBI (version 2.12 installed by default, replace it with code below)
 
 ```
 cd /usr/local/src
-sudo wget https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.15.0+-x64-linux.tar.gz
-sudo tar zxvpf ncbi-blast-2.15.0+-x64-linux.tar.gz
-sudo rm ncbi-blast-2.15.0+-x64-linux.tar.gz
+sudo wget https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-2.16.0+-x64-linux.tar.gz
+sudo tar zxvpf ncbi-blast-2.16.0+-x64-linux.tar.gz
+sudo rm ncbi-blast-2.16.0+-x64-linux.tar.gz
 cd /usr/local/bin
-sudo ln -sf /usr/local/src/ncbi-blast-2.15.0+/bin/* .
+sudo ln -sf /usr/local/src/ncbi-blast-2.16.0+/bin/* .
 cd
 ```
 
