@@ -275,15 +275,15 @@ cd
 ```
 
 
-### Installing GATK 4.5.0.0
+### Installing GATK 4.6.2.0
 
 ```
 cd /usr/local/src
-sudo wget https://github.com/broadinstitute/gatk/releases/download/4.5.0.0/gatk-4.5.0.0.zip
-sudo unzip gatk-4.5.0.0.zip
-sudo rm gatk-4.5.0.0.zip
+sudo wget https://github.com/broadinstitute/gatk/releases/download/4.6.2.0/gatk-4.6.2.0.zip
+sudo unzip gatk-4.6.2.0.zip
+sudo rm gatk-4.6.2.0.zip
 cd /usr/local/bin
-sudo ln -s /usr/local/src/gatk-4.5.0.0/gatk .
+sudo ln -s /usr/local/src/gatk-4.6.2.0/gatk .
 cd
 ```
 
