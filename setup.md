@@ -357,15 +357,15 @@ source .bashrc
 ```
 conda create --name sequencing
 conda activate sequencing
-conda install -c bioconda star
-conda install -c bioconda minimap2
-conda install -c bioconda seqkit
-conda install -c bioconda igv
-conda install -c bioconda igvtools
-conda install -c conda-forge -c bioconda busco
-conda install bbmap -c bioconda
+conda install -y -c bioconda star
+conda install -y -c bioconda minimap2
+conda install -y -c bioconda seqkit
+conda install -y -c bioconda igv
+conda install -y -c bioconda igvtools
+conda install -y -c conda-forge -c bioconda busco
+conda install -y -c bioconda bbmap
 conda install -y -c conda-forge -c bioconda "seqfu>1.10"
-conda install multiqc
+conda install -y -c conda-forge -c bioconda multiqc
 conda deactivate
 ```
 
